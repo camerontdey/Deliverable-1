@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,7 +30,13 @@ import java.util.List;
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth firebaseAuth;
-    private TextView textViewUserEmail;
+
+    private TextView userNameTextView;
+    private TextView roleTextView;
+
+
+    //   private TextView textViewUserEmail;
+
     private Button buttonLogout;
     private FirebaseUser user;
 
@@ -39,24 +46,50 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_profile);
 
 
+        firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
 
 
-
-        if(firebaseAuth.getCurrentUser() == null)
-        {
+        if (firebaseAuth.getCurrentUser() == null) {
             finish();
             startActivity(new Intent(this, LoginActivity.class));
         } else {
 
+
+            //      textViewUserEmail = (TextView) findViewById(R.id.textViewUserEmail);
+            //    textViewUserEmail.setText("welcome " + user.getEmail());
+
+
+            buttonLogout = (Button) findViewById(R.id.buttonLogout);
+            buttonLogout.setOnClickListener(this);
+
+
+            FirebaseDatabase.getInstance()
+                    .getReference()
+                    .child("User")
+                    .child(user.getUid())
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                            UserInformation user = dataSnapshot.getValue(UserInformation.class); // this is your user
+
+                            userNameTextView = (TextView) findViewById(R.id.userNameTextView);
+                            roleTextView = (TextView) findViewById(R.id.roleTextView);
+
+                            userNameTextView.setText("Welcome " + user.getUserName() + ". ");
+                            roleTextView.setText("You are now logged on as a " + user.getUserRole() + ".");
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
         }
-
-        textViewUserEmail = (TextView) findViewById(R.id.textViewUserEmail);
-        textViewUserEmail.setText("welcome " + user.getEmail());
-
-
-        buttonLogout = (Button) findViewById(R.id.buttonLogout);
-        buttonLogout.setOnClickListener(this);
     }
 
     @Override

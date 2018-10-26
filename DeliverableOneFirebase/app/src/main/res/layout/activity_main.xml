@@ -35,8 +35,8 @@
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:hint="Enter password"
+            android:layout_margin="5dp"
+            android:hint="Enter password: minimum length 8 characters"
             android:inputType="textPassword" />
 
         <EditText
@@ -51,8 +51,8 @@
             android:id="@+id/textShortMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="Specify Role: admin, user or provider"
+            android:layout_margin="8dp"
+            android:hint="Specify Role: admin, user or service provider"
             android:inputType="textShortMessage" />
 
         <Button
