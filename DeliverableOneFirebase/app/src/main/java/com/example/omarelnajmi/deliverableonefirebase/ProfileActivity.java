@@ -78,10 +78,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                             userNameTextView = (TextView) findViewById(R.id.userNameTextView);
                             roleTextView = (TextView) findViewById(R.id.roleTextView);
 
-                            userNameTextView.setText("Welcome " + user.getUserName() + ". ");
-                            roleTextView.setText("You are now logged on as a " + user.getUserRole() + ".");
+                            String userName = user.getUserName();
+                            String userRole = user.userRole;
 
-
+                            userNameTextView.setText("Welcome " + userName + ". ");
+                            roleTextView.setText("You are now logged on as a " + userRole + ".");
                         }
 
                         @Override
