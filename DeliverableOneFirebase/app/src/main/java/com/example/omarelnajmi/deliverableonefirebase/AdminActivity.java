@@ -28,14 +28,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
+public class AdminActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth firebaseAuth;
 
     private TextView userNameTextView;
     private TextView roleTextView;
-
-
     //   private TextView textViewUserEmail;
 
     private Button buttonLogout;
@@ -83,7 +81,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                             String userRole = user.getUserRole();
 
                             String setText = "Welcome " + userName + ". ";
-                            String setTextTwo = "You are now logged on as a " + userRole + ".";
+                            String setTextTwo = "You are now logged on as a " + userRole + ". Add or Remove one of the following services: " +
+                                    "Plumbing, Electrician, Landscaping, Snow Removal, Cleaning, Moving, Exterminating, Painting, Mould Remediation, Furniture Assembly.";
 
                             userNameTextView.setText(setText);
                             roleTextView.setText(setTextTwo);

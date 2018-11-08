@@ -7,9 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText textShortMessage;
     private EditText editTextName;
 
+
     private TextView textViewSignin;
     private Button buttonRegister;
 
@@ -40,6 +44,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        Spinner spinner = findViewById(R.id.spinner1);
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.userRoles, android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinner.setAdapter(adapter);
+//        spinner.setOnItemSelectedListener(this);
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -71,6 +81,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String email = editTextEmail.getText().toString().trim();
         String password  = editTextPassword.getText().toString().trim();
         final String userRole = textShortMessage.getText().toString().trim();
+
+
         final String userName = editTextName.getText().toString().trim();
 
 
@@ -109,7 +121,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         finish();
-                                        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                        if (userRole.equals("admin")){
+                                            startActivity(new Intent(getApplicationContext(), AdminActivity.class));
+                                        } else {
+                                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                        }
+
                                     } else {
                                         Toast.makeText(MainActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
                                     }
@@ -149,4 +166,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
+//    @Override
+//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//        String userRole = parent.getItemAtPosition(position).toString();
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> parent) {
+//
+//    }
+
 }
