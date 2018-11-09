@@ -55,14 +55,6 @@
             android:hint="Specify Role: admin, user or service provider"
             android:inputType="textShortMessage" />
 
-        <!--<Spinner-->
-            <!--android:id="@+id/spinner1"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_margin="8dp"-->
-            <!--android:hint="Specify Role: admin, user or service provider"-->
-            <!--android:inputType="textShortMessage" />-->
-
 
 
         <Button

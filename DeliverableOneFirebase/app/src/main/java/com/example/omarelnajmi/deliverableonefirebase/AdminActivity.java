@@ -45,6 +45,8 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_profile);
 
 
+
+
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
 
@@ -60,6 +62,7 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
 
 
             buttonLogout = (Button) findViewById(R.id.buttonLogout);
+
             buttonLogout.setOnClickListener(this);
 
 
@@ -77,15 +80,17 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
                             userNameTextView = (TextView) findViewById(R.id.userNameTextView);
                             roleTextView = (TextView) findViewById(R.id.roleTextView);
 
+
                             String userName = user.getUserName();
                             String userRole = user.getUserRole();
 
                             String setText = "Welcome " + userName + ". ";
-                            String setTextTwo = "You are now logged on as a " + userRole + ". Add or Remove one of the following services: " +
-                                    "Plumbing, Electrician, Landscaping, Snow Removal, Cleaning, Moving, Exterminating, Painting, Mould Remediation, Furniture Assembly.";
+                            String setTextTwo = "You are now logged on as a " + userRole + ".";
 
                             userNameTextView.setText(setText);
                             roleTextView.setText(setTextTwo);
+
+
                         }
 
                         @Override

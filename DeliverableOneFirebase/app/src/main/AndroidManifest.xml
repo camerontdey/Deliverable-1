@@ -21,7 +21,8 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".AdminActivity" />
-        <activity android:name=".test"></activity>
+        <activity android:name=".test" />
+        <activity android:name=".ServiceActivity"></activity>
     </application>
 
 </manifest>

@@ -8,11 +8,13 @@
 
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
 
         <LinearLayout
@@ -31,18 +33,68 @@
                 android:id="@+id/roleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
 
 
         </LinearLayout>
 
         <Button
+            android:id="@+id/buttonLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logout"
-            android:id="@+id/buttonLogout"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:text="Logout" />
+
+        <Button
+            android:id="@+id/buttonAddService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Add Service" />
+
+        <Button
+        android:id="@+id/buttonRemoveService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Remove Service" />
+
+        <Button
+            android:id="@+id/buttonListOfServices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="List Of Services" />
+
+        <Button
+            android:id="@+id/buttonUpdateService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Update" />
+
+        <EditText
+        android:id="@+id/textTypeOfService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:hint="Enter Name of Service Exactly as Specified Above"
+        android:inputType="textShortMessage" />
+
+
+
+        <EditText
+            android:id="@+id/textHourlyWage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Enter Hourly Wage"
+            android:inputType="textShortMessage" />
+
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

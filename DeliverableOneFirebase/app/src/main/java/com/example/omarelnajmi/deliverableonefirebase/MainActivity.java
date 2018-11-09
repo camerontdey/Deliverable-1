@@ -122,9 +122,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     if (task.isSuccessful()) {
                                         finish();
                                         if (userRole.equals("admin")){
-                                            startActivity(new Intent(getApplicationContext(), AdminActivity.class));
-                                        } else {
                                             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                        } else {
+                                            startActivity(new Intent(getApplicationContext(), AdminActivity.class));
                                         }
 
                                     } else {

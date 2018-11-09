@@ -125,9 +125,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                                 String userRole = user.getUserRole();
 
                                                 if (userRole.equals("admin")) {
-                                                    startActivity(new Intent(getApplicationContext(), AdminActivity.class));
-                                                } else {
                                                     startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                                } else {
+                                                    startActivity(new Intent(getApplicationContext(), AdminActivity.class));
                                                 }
                                             }
 
