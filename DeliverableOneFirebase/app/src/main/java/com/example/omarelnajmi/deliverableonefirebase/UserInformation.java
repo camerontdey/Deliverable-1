@@ -20,4 +20,24 @@ public class UserInformation {
     public String getUserName() {
         return userName;
     }
+
+
+
+//    public abstract String getUserAddress();
+//
+//    public abstract void setUserAddress(String userAddress);
+//
+//    public abstract String getNameOfCompany();
+//
+//    public abstract void setNameOfCompany(String nameOfCompany);
+//
+//    public abstract String getUserDescription();
+//
+//    public abstract void setUserDescription(String userDescription);
+//
+//    public abstract String getIsLicensed();
+//
+//    public abstract void setIsLicensed(String isLicensed);
+
+
 }

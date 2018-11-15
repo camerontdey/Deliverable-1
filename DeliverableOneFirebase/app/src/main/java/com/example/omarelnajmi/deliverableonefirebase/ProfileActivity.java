@@ -179,8 +179,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             String serviceType = textTypeOfService.getText().toString().trim();
 
             FirebaseDatabase.getInstance().getReference("Service").
-                    child(serviceType).removeValue();
-
+                    child(serviceType).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(ProfileActivity.this,"Service Removed",Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
         }
 
 

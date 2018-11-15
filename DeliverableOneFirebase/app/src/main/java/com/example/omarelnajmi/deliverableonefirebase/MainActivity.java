@@ -45,11 +45,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Spinner spinner = findViewById(R.id.spinner1);
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.userRoles, android.R.layout.simple_spinner_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner.setAdapter(adapter);
-//        spinner.setOnItemSelectedListener(this);
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -123,7 +118,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         finish();
                                         if (userRole.equals("admin")){
                                             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-                                        } else {
+                                        } else if (userRole.equals("Service Provider")) {
+                                            startActivity(new Intent(getApplicationContext(), ServiceProviderActivity.class));
+                                        }
+
+
+                                        else {
                                             startActivity(new Intent(getApplicationContext(), AdminActivity.class));
                                         }
 
