@@ -130,7 +130,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                                                     startActivity(new Intent(getApplicationContext(), ServiceProviderActivity.class));
                                                 } else {
-                                                    startActivity(new Intent(getApplicationContext(), AdminActivity.class));
+                                                    startActivity(new Intent(getApplicationContext(), ServiceProviderActivity.class));
                                                 }
                                             }
 
