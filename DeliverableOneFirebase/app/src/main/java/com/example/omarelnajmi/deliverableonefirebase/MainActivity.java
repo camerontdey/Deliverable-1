@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                                         else {
-                                            startActivity(new Intent(getApplicationContext(), AdminActivity.class));
+                                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                                         }
 
                                     } else {

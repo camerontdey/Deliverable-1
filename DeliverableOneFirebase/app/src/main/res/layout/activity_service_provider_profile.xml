@@ -8,13 +8,16 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <LinearLayout
@@ -31,38 +34,38 @@
         </LinearLayout>
 
         <EditText
-        android:id="@+id/textTypeOfService"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="Enter Name of Service"
-        android:inputType="textShortMessage" />
+            android:id="@+id/textTypeOfService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="Enter Name of Service"
+            android:inputType="textShortMessage" />
 
         <EditText
             android:id="@+id/textAvailability"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:hint="Enter Availability"
+            android:hint="Enter Availability (AM-PM)"
             android:inputType="textShortMessage" />
 
         <Button
             android:id="@+id/buttonAddService"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Add Service" />
 
         <Button
             android:id="@+id/buttonRemoveService"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Remove Service" />
 
         <Button
             android:id="@+id/buttonListOfServices"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="My Profile" />
@@ -70,12 +73,10 @@
 
         <Button
             android:id="@+id/buttonLogout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Logout" />
-
-
 
 
     </LinearLayout>
