@@ -6,7 +6,7 @@ public class ServiceProviderObject extends UserInformation {
 
     public ServiceProviderObject(String serviceName, String availability){
         this.serviceName = serviceName;
-        this.serviceName = availability;
+        this.availability = availability;
     }
 
     public String getServiceName(){

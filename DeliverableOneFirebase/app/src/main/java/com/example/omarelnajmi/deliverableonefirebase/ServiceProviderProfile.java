@@ -109,7 +109,7 @@ public class ServiceProviderProfile extends AppCompatActivity implements View.On
             startActivity(new Intent(this, MainActivity.class));
         }
 
-        else if(v == buttonAddService){
+        if(v == buttonAddService){
             String serviceType = textTypeOfService.getText().toString().trim();
 
             if (TextUtils.isEmpty(serviceType)) {
@@ -145,7 +145,7 @@ public class ServiceProviderProfile extends AppCompatActivity implements View.On
             });
 
         }
-        else if (v == buttonRemoveService){
+        if (v == buttonRemoveService){
             String serviceType = textTypeOfService.getText().toString().trim();
 
             if (TextUtils.isEmpty(serviceType)) {
@@ -163,7 +163,7 @@ public class ServiceProviderProfile extends AppCompatActivity implements View.On
                 }
             });
         }
-        else if (v == buttonListOfServices){
+        if (v == buttonListOfServices){
             Intent intent = new Intent(this, ServiceActivity.class);
             startActivity(intent);
         }
