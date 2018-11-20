@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ServiceProviderActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private FirebaseAuth firebaseAuth;
+
 
     private TextView userNameTextView;
     private TextView roleTextView;
@@ -39,6 +39,7 @@ public class ServiceProviderActivity extends AppCompatActivity implements View.O
     private Button buttonCompleteProfile;
     private Button buttonContinue;
 
+    private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
 
     @Override

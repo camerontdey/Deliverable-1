@@ -13,4 +13,11 @@ public class ServiceProviderObject extends UserInformation {
         return this.serviceName;
     }
 
+    @Override
+    public String toString() {
+        return "ServiceProviderObject{" +
+                "serviceName='" + serviceName + '\'' +
+                ", availability='" + availability + '\'' +
+                '}';
+    }
 }

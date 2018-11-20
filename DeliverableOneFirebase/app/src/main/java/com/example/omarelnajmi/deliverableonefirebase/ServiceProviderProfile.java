@@ -130,7 +130,6 @@ public class ServiceProviderProfile extends AppCompatActivity implements View.On
             ServiceProviderObject newService = new ServiceProviderObject(serviceType, availability);
 
 
-
             FirebaseDatabase.getInstance().getReference("User").child(user.getUid()).child("Profile").child("Service").
                     child(newService.getServiceName()).
                     setValue(newService).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -164,8 +163,8 @@ public class ServiceProviderProfile extends AppCompatActivity implements View.On
             });
         }
         if (v == buttonListOfServices){
-            Intent intent = new Intent(this, ServiceActivity.class);
-            startActivity(intent);
+            finish();
+            startActivity(new Intent(getApplicationContext(), PersonalProviderProfile.class));
         }
     }
 }
