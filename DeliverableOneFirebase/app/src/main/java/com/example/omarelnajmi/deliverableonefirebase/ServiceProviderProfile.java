@@ -38,6 +38,7 @@ public class ServiceProviderProfile extends AppCompatActivity implements View.On
 
     private ListView serviceList;
     private ArrayAdapter<String> myAdapter;
+    private ArrayList<String> myList = new ArrayList<String>();
 
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
@@ -86,6 +87,7 @@ public class ServiceProviderProfile extends AppCompatActivity implements View.On
                         Service service = serviceSnap.getValue(Service.class);
 
                         listOfServices.add(service.getServiceName());
+                        myList = listOfServices;
 
                     }
                     serviceList.setAdapter(myAdapter);
@@ -103,49 +105,76 @@ public class ServiceProviderProfile extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View v) {
+        String serviceType;
+        String availability;
+        boolean add = false;
         if (v == buttonLogout) {
             firebaseAuth.signOut();
             finish();
             startActivity(new Intent(this, MainActivity.class));
         }
 
-        if(v == buttonAddService){
-            String serviceType = textTypeOfService.getText().toString().trim();
+        if (v == buttonAddService) {
 
-            if (TextUtils.isEmpty(serviceType)) {
-                Toast.makeText(this,"Please enter Service",Toast.LENGTH_LONG).show();
-                return;
-            }
-
-
-
-            String availability = textAvailability.getText().toString().trim();
+            serviceType = textTypeOfService.getText().toString().trim();
+            availability = textAvailability.getText().toString().trim();
 
             if (TextUtils.isEmpty(availability)) {
-                Toast.makeText(this,"Please enter availability",Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Please enter availability", Toast.LENGTH_LONG).show();
                 return;
             }
 
 
-            ServiceProviderObject newService = new ServiceProviderObject(serviceType, availability);
+            if (TextUtils.isEmpty(serviceType)) {
+                Toast.makeText(this, "Please enter a ServiceType", Toast.LENGTH_LONG).show();
+                return;
+            }
 
+//            FirebaseDatabase database = FirebaseDatabase.getInstance();
+//            DatabaseReference ref = database.getReference("Service");
+//            ref.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    for (DataSnapshot serviceListSnap : dataSnapshot.getChildren()) {
+//                        ServiceProviderObject service = serviceListSnap.getValue(ServiceProviderObject.class);
+//                        listOfServices.add(service.getServiceName());
+//                    }
+//                }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
-            FirebaseDatabase.getInstance().getReference("User").child(user.getUid()).child("Profile").child("Service").
-                    child(newService.getServiceName()).
-                    setValue(newService).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(ServiceProviderProfile.this,"Service Added",Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(ServiceProviderProfile.this,"Could not add service",Toast.LENGTH_LONG).show();
-                    }
+            for (int i = 0; i < myList.size(); i++) {
+                if (serviceType.equals(myList.get(i))) {
+                    add = true;
+                    break;
                 }
-            });
+            }
+            if (add != true) {
+                Toast.makeText(this, "Unavailable", Toast.LENGTH_LONG).show();
+                return;
+            } else if (add == true) {
+                ServiceProviderObject newService = new ServiceProviderObject(serviceType, availability);
 
+                FirebaseDatabase.getInstance().getReference("User").child(user.getUid()).child("Profile").child("Service").
+                        child(newService.getServiceName()).
+                        setValue(newService).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(ServiceProviderProfile.this, "Service Added", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(ServiceProviderProfile.this, "Could not add service", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+            }
         }
         if (v == buttonRemoveService){
-            String serviceType = textTypeOfService.getText().toString().trim();
+            serviceType = textTypeOfService.getText().toString().trim();
 
             if (TextUtils.isEmpty(serviceType)) {
                 Toast.makeText(this,"Please enter Service",Toast.LENGTH_LONG).show();
@@ -163,8 +192,8 @@ public class ServiceProviderProfile extends AppCompatActivity implements View.On
             });
         }
         if (v == buttonListOfServices){
-            finish();
-            startActivity(new Intent(getApplicationContext(), PersonalProviderProfile.class));
+            Intent intent = new Intent(this, ServiceActivity.class);
+            startActivity(intent);
         }
     }
 }
