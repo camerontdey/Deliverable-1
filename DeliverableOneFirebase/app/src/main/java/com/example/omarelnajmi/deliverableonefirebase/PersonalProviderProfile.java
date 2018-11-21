@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -50,9 +51,8 @@ public class PersonalProviderProfile extends AppCompatActivity implements View.O
 
         } else {
 
-
             FirebaseDatabase.getInstance()
-                    .getReference()
+                    .getReference("User")
                     .child(user.getUid())
                     .child("Profile")
                     .child("Service")
@@ -62,7 +62,7 @@ public class PersonalProviderProfile extends AppCompatActivity implements View.O
 
                             for (DataSnapshot serviceSnap : dataSnapshot.getChildren()) {
                                 ServiceProviderObject availabilities = serviceSnap.getValue(ServiceProviderObject.class);
-                                String toString = availabilities.getServiceName();
+                                String toString = availabilities.toString();
                                 listOfServices.add(toString);
                             }
                             serviceList.setAdapter(myAdapter);

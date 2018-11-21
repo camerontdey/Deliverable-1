@@ -4,6 +4,9 @@ public class ServiceProviderObject extends UserInformation {
     public String serviceName;
     public String availability;
 
+    public ServiceProviderObject() {
+    }
+
     public ServiceProviderObject(String serviceName, String availability){
         this.serviceName = serviceName;
         this.availability = availability;
@@ -15,8 +18,8 @@ public class ServiceProviderObject extends UserInformation {
 
     @Override
     public String toString() {
-        return "ServiceProviderObject{" +
-                "serviceName='" + serviceName + '\'' +
+        return
+                "ServiceName='" + serviceName + '\'' +
                 ", availability='" + availability + '\'' +
                 '}';
     }

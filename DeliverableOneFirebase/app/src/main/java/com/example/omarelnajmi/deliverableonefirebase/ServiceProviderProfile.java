@@ -192,7 +192,7 @@ public class ServiceProviderProfile extends AppCompatActivity implements View.On
             });
         }
         if (v == buttonListOfServices){
-            Intent intent = new Intent(this, ServiceActivity.class);
+            Intent intent = new Intent(this, PersonalProviderProfile.class);
             startActivity(intent);
         }
     }
