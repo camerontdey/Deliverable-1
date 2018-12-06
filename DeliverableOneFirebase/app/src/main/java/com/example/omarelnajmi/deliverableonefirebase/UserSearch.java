@@ -21,14 +21,28 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-public class UserSearch {
-    private String service;
-    private String availability;
-    private int rating;
+public class UserSearch extends AppCompatActivity implements View.OnClickListener{
 
-    public UserSearch(String service, String availability,int rating){
-        this.service = service;
-        this.availability = availability;
-        this.rating = rating;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser user;
+
+    private Button button_Back;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_search);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
     }
+
+    @Override
+    public void onClick(View v) {
+        if (v == button_Back) {
+            Intent intent = new Intent(UserSearch.this, UserMainPage.class);
+            startActivity(intent);
+        }
+    }
+
+
 }

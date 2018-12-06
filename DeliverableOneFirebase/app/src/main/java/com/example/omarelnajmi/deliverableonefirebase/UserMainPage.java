@@ -39,6 +39,10 @@ public class UserMainPage extends AppCompatActivity implements View.OnClickListe
         private FirebaseAuth firebaseAuth;
         private FirebaseUser user;
 
+        private String availibility;
+        private String serviceName;
+        private String rate;
+
 
 
 
@@ -138,9 +142,39 @@ public class UserMainPage extends AppCompatActivity implements View.OnClickListe
                 availability = null;
             }
 
-            UserSearch.handleInfo(service,availability,rating);
+            UserObject userObject = new UserObject(service,availability,rating);
+
+            startActivity(new Intent(this, UserSearch.class));
         }
     }
 
+    public String getServiceName() {
+        return this.serviceName;
     }
+
+    public String getAvailability(){
+        return this.availibility;
+    }
+
+    public String getRate(){
+        return this.rate;
+    }
+
+    public void setServiceName(String serviceName){
+        this.serviceName = serviceName;
+    }
+
+    public void setAvailability(String availability){
+        this.availibility = availability;
+    }
+
+    public void setRate(String rate){
+        this.rate = rate;
+
+    }
+
+
+
+
+}
 

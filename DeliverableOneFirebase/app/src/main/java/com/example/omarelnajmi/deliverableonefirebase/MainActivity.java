@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         } else if (userRole.equals("Service Provider")) {
                                             startActivity(new Intent(getApplicationContext(), ServiceProviderActivity.class));
                                         }
-                                        else if(userRole.equals("user")){
+                                        else if(userRole.equals("Home Owner")){
                                             startActivity(new Intent(getApplicationContext(), UserMainPage.class));
                                         }
 

@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                                 userNameTextView = (TextView) findViewById(R.id.userNameTextView);
                                                 roleTextView = (TextView) findViewById(R.id.roleTextView);
 
-                                                String userName = user.getUserName();
+                                                //String userName = user.getUserName();
                                                 String userRole = user.getUserRole();
 
                                                 if (userRole.equals("admin")) {
@@ -129,8 +129,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                                 } else if (userRole.equals("Service Provider")){
 
                                                     startActivity(new Intent(getApplicationContext(), ServiceProviderActivity.class));
-                                                } else {
-                                                    startActivity(new Intent(getApplicationContext(), ServiceProviderActivity.class));
+                                                } else if(userRole.equals("Home Owner")){
+                                                    startActivity(new Intent(getApplicationContext(), UserMainPage.class));
+                                                }
+
+                                                else {
+                                                    startActivity(new Intent(getApplicationContext(), UserMainPage.class));
                                                 }
                                             }
 

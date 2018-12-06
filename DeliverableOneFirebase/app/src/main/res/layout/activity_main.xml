@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Specify Role: admin, user or service provider"
+            android:hint="Role: admin, Home Owner or Service Provider"
             android:inputType="textShortMessage" />
 
 
